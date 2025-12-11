@@ -7,7 +7,7 @@ export default async function StandingsPage() {
 
   return (
     <main style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>Week 1 Standings</h1>
+      <h1>Week 2 Standings</h1>
       <StandingsTabs 
         conferenceStandings={conferenceStandings}
         divisionalStandings={divisionalStandings}

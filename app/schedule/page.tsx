@@ -6,7 +6,7 @@ export default async function SchedulePage() {
 
   return (
     <main style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
-      <SchedulePageClient schedule={schedule} />
+      <SchedulePageClient schedule={schedule} week={1} />
     </main>
   )
 }

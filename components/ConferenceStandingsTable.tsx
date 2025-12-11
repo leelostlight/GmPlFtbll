@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ConferenceStandingsTable } from '@/data/standings'
+import type { ConferenceStandingsTable } from '@/data/standings'
 import { getTeamLogoPath } from '@/lib/teamLogos'
 import Link from 'next/link'
 

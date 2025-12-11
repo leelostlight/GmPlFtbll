@@ -8,41 +8,72 @@ import ScheduleTable from './ScheduleTable'
 
 interface SchedulePageClientProps {
   schedule: ScheduleEntry[]
+  week?: number
 }
 
-export default function SchedulePageClient({ schedule }: SchedulePageClientProps) {
-  const [showScores, setShowScores] = useState(false)
+export default function SchedulePageClient({ schedule, week = 1 }: SchedulePageClientProps) {
+  // Show scores by default for Week 2 (results), hide for Week 1
+  const [showScores, setShowScores] = useState(week === 2)
 
   return (
     <>
-      <div style={{ marginBottom: '1rem', textAlign: 'right' }}>
-        <Link 
-          href="/schedule/next-week"
-          style={{
-            padding: '0.75rem 1.5rem',
-            backgroundColor: '#0066cc',
-            color: '#FFFFFF',
-            borderRadius: '6px',
-            textDecoration: 'none',
-            fontWeight: 'bold',
-            fontSize: '1rem',
-            display: 'inline-block',
-            border: '2px solid #000000',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#0052a3'
-            e.currentTarget.style.transform = 'scale(1.05)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#0066cc'
-            e.currentTarget.style.transform = 'scale(1)'
-          }}
-        >
-          View Week 2 Schedule & Predictions →
-        </Link>
-      </div>
+      {week === 1 && (
+        <div style={{ marginBottom: '1rem', textAlign: 'right' }}>
+          <Link 
+            href="/schedule/week-2"
+            style={{
+              padding: '0.75rem 1.5rem',
+              backgroundColor: '#0066cc',
+              color: '#FFFFFF',
+              borderRadius: '6px',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontSize: '1rem',
+              display: 'inline-block',
+              border: '2px solid #000000',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
+              transition: 'all 0.3s ease',
+              marginRight: '1rem'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#0052a3'
+              e.currentTarget.style.transform = 'scale(1.05)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#0066cc'
+              e.currentTarget.style.transform = 'scale(1)'
+            }}
+          >
+            View Week 2 Results →
+          </Link>
+          <Link 
+            href="/schedule/next-week"
+            style={{
+              padding: '0.75rem 1.5rem',
+              backgroundColor: '#0066cc',
+              color: '#FFFFFF',
+              borderRadius: '6px',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontSize: '1rem',
+              display: 'inline-block',
+              border: '2px solid #000000',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#0052a3'
+              e.currentTarget.style.transform = 'scale(1.05)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#0066cc'
+              e.currentTarget.style.transform = 'scale(1)'
+            }}
+          >
+            View Week 3 Schedule & Predictions →
+          </Link>
+        </div>
+      )}
       <div style={{ position: 'relative', marginBottom: '2rem' }}>
         <Image
           src="/assets/images/schedule-scores-payton.jpg"
@@ -67,7 +98,7 @@ export default function SchedulePageClient({ schedule }: SchedulePageClientProps
           textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
           margin: 0
         }}>
-          Week 1 Results
+          Week {week} Results
         </h1>
         <button
           onClick={() => setShowScores(!showScores)}

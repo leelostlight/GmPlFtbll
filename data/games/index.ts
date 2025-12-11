@@ -304,12 +304,16 @@ export const week1Games: Game[] = [
   },
 ];
 
+import { week2Games } from './week2'
+
 export async function getGameById(gameId: string): Promise<Game | null> {
-  // In a real app, this would fetch from a database or API
-  return week1Games.find(game => game.id === gameId) || null
+  // Search in both Week 1 and Week 2 games
+  const allGames = [...week1Games, ...week2Games]
+  return allGames.find(game => game.id === gameId) || null
 }
 
 export async function getAllGames(): Promise<Game[]> {
-  return week1Games
+  // Return combined Week 1 and Week 2 games
+  return [...week1Games, ...week2Games]
 }
       

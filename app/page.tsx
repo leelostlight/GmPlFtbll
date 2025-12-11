@@ -8,7 +8,7 @@ export default function Home() {
     <main style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
       <div style={{ position: 'relative', marginBottom: '2rem' }}>
         <Image
-          src="/assets/images/futuristic-football-soccer-player-with-glowing-lights copy.jpg"
+          src="/assets/images/futuristic-football-soccer-player-with-glowing.jpeg"
           alt="Game Plan League"
           width={1200}
           height={400}
