@@ -6,28 +6,31 @@ import { getTeamLogoPath } from '@/lib/teamLogos'
 export default async function RankingsPage() {
   const teamStats = await getTeamDetailedStats()
 
+  // Filter out Washington Commanders
+  const filteredTeamStats = teamStats.filter(team => team.team !== 'Washington Commanders')
+
   // Sort teams by different criteria
-  const totalOffenseRankings = [...teamStats].sort((a, b) => 
+  const totalOffenseRankings = [...filteredTeamStats].sort((a, b) => 
     b.offense.totalOffenseYards - a.offense.totalOffenseYards
   )
 
-  const passingYardsRankings = [...teamStats].sort((a, b) => 
+  const passingYardsRankings = [...filteredTeamStats].sort((a, b) => 
     b.offense.passingYards - a.offense.passingYards
   )
 
-  const rushingYardsRankings = [...teamStats].sort((a, b) => 
+  const rushingYardsRankings = [...filteredTeamStats].sort((a, b) => 
     b.offense.rushingYards - a.offense.rushingYards
   )
 
-  const defensiveYardsRankings = [...teamStats].sort((a, b) => 
+  const defensiveYardsRankings = [...filteredTeamStats].sort((a, b) => 
     a.defense.totalOffenseYardsAllowed - b.defense.totalOffenseYardsAllowed
   ) // Lower is better for defense
 
-  const defensivePassingYardsRankings = [...teamStats].sort((a, b) => 
+  const defensivePassingYardsRankings = [...filteredTeamStats].sort((a, b) => 
     a.defense.passingYardsAllowed - b.defense.passingYardsAllowed
   ) // Lower is better for defense
 
-  const defensiveRushingYardsRankings = [...teamStats].sort((a, b) => 
+  const defensiveRushingYardsRankings = [...filteredTeamStats].sort((a, b) => 
     a.defense.rushingYardsAllowed - b.defense.rushingYardsAllowed
   ) // Lower is better for defense
 

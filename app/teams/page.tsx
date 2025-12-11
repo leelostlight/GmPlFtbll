@@ -18,8 +18,11 @@ export default async function TeamsPage() {
     })
   })
 
+  // Filter out Washington Commanders
+  const filteredTeams = teams.filter(team => team.name !== 'Washington Commanders')
+  
   // Sort teams by conference, then division, then win percentage
-  const sortedTeams = teams.sort((a, b) => {
+  const sortedTeams = filteredTeams.sort((a, b) => {
     if (a.conference !== b.conference) {
       return a.conference.localeCompare(b.conference)
     }

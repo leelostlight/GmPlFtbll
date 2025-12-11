@@ -27,13 +27,13 @@ export default function ScheduleTable({ schedule, showScores }: ScheduleTablePro
                   Week {game.week}
                 </td>
                 <td style={{ padding: '0.75rem' }}>
-                  <Link href={`/teams/${game.homeTeam.toLowerCase().replace(/\s+/g, '-')}`}>
-                    {game.homeTeam}
+                  <Link href={`/teams/${game.awayTeam.toLowerCase().replace(/\s+/g, '-')}`}>
+                    {game.awayTeam}
                   </Link>
                 </td>
                 <td style={{ padding: '0.75rem' }}>
-                  <Link href={`/teams/${game.awayTeam.toLowerCase().replace(/\s+/g, '-')}`}>
-                    {game.awayTeam}
+                  <Link href={`/teams/${game.homeTeam.toLowerCase().replace(/\s+/g, '-')}`}>
+                    {game.homeTeam}
                   </Link>
                 </td>
                 <td style={{ padding: '0.75rem', textAlign: 'center', fontWeight: 'bold' }}>

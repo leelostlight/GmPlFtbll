@@ -12,8 +12,8 @@ interface SchedulePageClientProps {
 }
 
 export default function SchedulePageClient({ schedule, week = 1 }: SchedulePageClientProps) {
-  // Show scores by default for Week 2 (results), hide for Week 1
-  const [showScores, setShowScores] = useState(week === 2)
+  // Hide scores by default - user must click "Show Scores" button
+  const [showScores, setShowScores] = useState(false)
 
   return (
     <>
