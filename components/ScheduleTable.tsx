@@ -38,7 +38,7 @@ export default function ScheduleTable({ schedule, showScores }: ScheduleTablePro
                 </td>
                 <td style={{ padding: '0.75rem', textAlign: 'center', fontWeight: 'bold' }}>
                   {showScores ? (
-                    `${game.score.totalHome} - ${game.score.totalAway}`
+                    `${game.score.totalAway} - ${game.score.totalHome}`
                   ) : (
                     <span style={{ color: '#999' }}>—</span>
                   )}
